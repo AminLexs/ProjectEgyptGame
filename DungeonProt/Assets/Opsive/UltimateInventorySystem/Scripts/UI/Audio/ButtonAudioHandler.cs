@@ -1,0 +1,67 @@
+﻿using Opsive.UltimateInventorySystem.Utility;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Opsive.UltimateInventorySystem.UI.Audio
+{
+    using Opsive.UltimateInventorySystem.UI.CompoundElements;
+
+    /// <summary>
+    /// This component is used to add audio to your buttons and action buttons.
+    /// </summary>
+    public class ButtonAudioHandler : MonoBehaviour
+    {
+        [Tooltip("The button audio.")]
+        [SerializeField] protected ButtonAudio m_ButtonAudio;
+        [Tooltip("The button (optional), can only trigger click sounds.")]
+        [SerializeField] protected Button m_Button;
+        [Tooltip("The action button (optional).")]
+        [SerializeField] protected ActionButton m_ActionButton;
+
+        /// <summary>
+        /// Get the references if they are missing.
+        /// </summary>
+        private void Awake()
+        {
+            if (m_Button == null) { m_Button = GetComponent<Button>(); }
+            if (m_ActionButton == null) { m_ActionButton = GetComponent<ActionButton>(); }
+        }
+
+        /// <summary>
+        /// Listen to the events.
+        /// </summary>
+        private void Start()
+        {
+            if (m_ButtonAudio == null) {
+                Debug.LogWarning("The audio asset is missing from the button audio, no audio will be played.", gameObject);
+                return;
+            }
+        
+            if (m_Button != null) {
+            
+                m_Button.onClick.AddListener(PlayClickSound);
+            }
+
+            if (m_ActionButton != null) { 
+                m_ActionButton.OnSelectE += PlaySelectSound;
+                m_ActionButton.OnSubmitE += PlayClickSound;
+            }
+        }
+
+        /// <summary>
+        /// Play the select sound.
+        /// </summary>
+        private void PlaySelectSound()
+        {
+            AudioManager.PlayClipAt(m_ButtonAudio.SelectClip, Vector3.zero);
+        }
+
+        /// <summary>
+        /// Play the click sound.
+        /// </summary>
+        private void PlayClickSound()
+        {
+            AudioManager.PlayClipAt(m_ButtonAudio.ClickClip, Vector3.zero);
+        }
+    }
+}
