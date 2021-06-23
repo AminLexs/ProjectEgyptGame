@@ -107,7 +107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 854346022064385481}
+  attackRange: 0.4
+  attackPoint: {fileID: 2033131606578272320}
+  attackRate: 1
 --- !u!1 &8841360335787577177
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 83261e32da4719e47819830250280652, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df2d290d000076342b6d989751cecb28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -241,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 854346022064385481}
-  maxHealth: 40
+  maxHealth: 10
   repulseRange: 1
   hurtTicks: 10
   dropsItem:

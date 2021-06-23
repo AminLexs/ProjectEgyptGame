@@ -21,14 +21,18 @@ public class Player : MonoBehaviour,
     private Animator animator;
     //private float lastIdleState = 1;
 
+    private SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponentInChildren<Animator>();
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
     public void Die()
     {
+        gameObject.SetActive(false);
     }
 
     public void Heal(int hp)
@@ -58,6 +62,17 @@ public class Player : MonoBehaviour,
             }
         }
 
+        //if (direction.sqrMagnitude == 0) //если перемещение закончилось, зафиксировать в состояниях текущее направление героя
+        //{
+        //    animator.SetFloat("IdleState", lastIdleState);
+        //}
+        //else
+        //{ //получить текущее направление перемещения
+        //    if (direction.x != 0)
+        //        lastIdleState = (direction.x > 0) ? 2 : 3;
+        //    else lastIdleState = (direction.y > 0) ? 0 : 1;
+        //}
+
         animator.SetFloat("Horizontal", direction.x); //установить в состояниях нажатия на клавиши по оси x и y
         animator.SetFloat("Vertical", direction.y);
     }
@@ -72,12 +87,28 @@ public class Player : MonoBehaviour,
 
     public void TakeDamage(int damage)
     {
+        spriteRenderer.color = Color.red;
+
         Health -= damage;
 
         if (Health <= 0)
         {
             Health = 0;
             Die();
+        }
+    }
+
+    private int inHurt = 0;
+    public void FixedUpdate()
+    {
+        if (spriteRenderer.color == Color.red)
+        {
+            inHurt++;
+            if (inHurt >= 10)
+            {
+                inHurt = 0;
+                spriteRenderer.color = Color.white;
+            }
         }
     }
 }

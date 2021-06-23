@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth > 0)
         {
-            gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             hurtTicksLeft = hurtTicks;
             inHurt = true;
 
@@ -102,7 +102,6 @@ public class Enemy : MonoBehaviour
         {
             Vector3 enemyPosition = gameObject.transform.position;
             enemyPosition.y += 1;
-            print(dropsItem.Length - 1);
             Instantiate(dropsItem[Random.Range(0, dropsItem.Length - 1)], enemyPosition, Quaternion.identity);
         }
     }
