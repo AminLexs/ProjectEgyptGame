@@ -10,16 +10,23 @@ public class ManaBar : MonoBehaviour
     public Text output;
     public float maxMp;
     public float currentMp;
+
+    Player player;
+
     void Start()
     {
+        player = GetComponent<Player>();
+
         fill = 1f;
-        currentMp = 100;
-        maxMp = 100;
+        currentMp = player.ManaPoints;
+        maxMp = player.MaxMana;
     }
     
     void Update()
     {
-        if(currentMp < 0) currentMp = 0;
+        currentMp = player.ManaPoints;
+
+        if (currentMp < 0) currentMp = 0;
         if(currentMp > maxMp) currentMp = maxMp;
         fill = currentMp / maxMp;
         bar.fillAmount = fill;

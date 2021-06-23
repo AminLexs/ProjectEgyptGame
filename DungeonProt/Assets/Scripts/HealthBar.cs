@@ -10,16 +10,23 @@ public class HealthBar : MonoBehaviour
     public Text output;
     public float maxHp;
     public float currentHp;
+
+    Player player;
+
     void Start()
     {
+        player = GetComponent<Player>();
+
         fill = 1f;
-        currentHp = 100;
-        maxHp = 100;
+        currentHp = player.Health;
+        maxHp = player.MaxHealth;
     }
     
     void Update()
     {
-        if(currentHp < 0) currentHp = 0;
+        currentHp = player.Health;
+
+        if (currentHp < 0) currentHp = 0;
         if(currentHp > maxHp) currentHp = maxHp;
         fill = currentHp / maxHp;
         bar.fillAmount = fill;

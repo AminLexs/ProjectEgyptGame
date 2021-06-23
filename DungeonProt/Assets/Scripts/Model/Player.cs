@@ -9,11 +9,11 @@ public class Player : MonoBehaviour,
                       IWizzard
 
 {
-    public int Health { get; set; } = 30;
-    public int MaxHealth { get; set; } = 100;
+    public int Health { get; set; } = 50;
+    public int MaxHealth { get; set; } = 50;
     public float MoveSpeed { get; set; } = 4;
     public int ManaPoints { get; set; } = 50;
-    public int MaxMana { get; set; } = 100;
+    public int MaxMana { get; set; } = 50;
     public ISpell spell { get; set; } = null;
 
     private Rigidbody2D rb;

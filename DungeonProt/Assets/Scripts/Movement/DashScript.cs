@@ -16,8 +16,13 @@ public class DashScript : MonoBehaviour
     Vector3 destination;
     ParticleSystem trail;
 
+    Player player;
+    int SpellCost = 15;
+
     void Start()
     {
+        player = GetComponent<Player>();
+
         trail = transform.Find("Trail").GetComponent<ParticleSystem>();
         cooldownTimer = Cooldown;
     }
@@ -26,7 +31,11 @@ public class DashScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Blink();
+            if (player.ManaPoints >= SpellCost)
+            {
+                Blink();
+                player.ManaPoints -= SpellCost;
+            }
         }
 
         if (cooldownTimer > 0)

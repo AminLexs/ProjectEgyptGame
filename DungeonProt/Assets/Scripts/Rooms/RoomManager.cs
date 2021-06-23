@@ -28,6 +28,14 @@ public class RoomManager : MonoBehaviour
         {
             currentRoom = rooms[nextX, nextY];
             player.transform.position = currentRoom.PlayerSpawners[spawnerIndx].position;
+
+            if (currentRoom.name == "FinallRoom(Clone)")
+            {
+                currentRoom.TopWay.GetComponent<RoomWay>().ChangeDoorStatus(false);
+                currentRoom.LeftWay.GetComponent<RoomWay>().ChangeDoorStatus(false);
+                currentRoom.RightWay.GetComponent<RoomWay>().ChangeDoorStatus(false);
+                currentRoom.BottomWay.GetComponent<RoomWay>().ChangeDoorStatus(false);
+            }
         }
     }
 
