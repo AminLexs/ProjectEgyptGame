@@ -3364,5 +3364,10 @@ PrefabInstance:
       propertyPath: m_ItemCollectionData.Array.data[0].m_ValuePositions.Array.data[22]
       value: 79
       objectReference: {fileID: 0}
+    - target: {fileID: 8869581680928989134, guid: 474d6d40267d06e42be4767d395d3b24,
+        type: 3}
+      propertyPath: attackRange
+      value: 0.58
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 474d6d40267d06e42be4767d395d3b24, type: 3}
