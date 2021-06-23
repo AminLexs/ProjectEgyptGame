@@ -5599,6 +5599,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1937133764756465973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7433958485313486070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01af769ea12f00d449bc007bb99b3d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7504888610282044858
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,6 +6315,8 @@ GameObject:
   - component: {fileID: 1627747637902916614}
   - component: {fileID: 7136249095268824124}
   - component: {fileID: 3440384795400319886}
+  - component: {fileID: 6277007578510178253}
+  - component: {fileID: 3834714082762988903}
   m_Layer: 0
   m_Name: LostHeaven
   m_TagString: Untagged
@@ -6819,6 +6833,99 @@ PolygonCollider2D:
       - {x: 1.11, y: 1.0799999}
       - {x: 1.1, y: 1.0799999}
       - {x: 0.93, y: 0.90999997}
+--- !u!114 &6277007578510178253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784014362856025470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: 
+  overrideUseMessage: 
+  maxUseDistance: 5
+  events:
+    onSelect:
+      m_PersistentCalls:
+        m_Calls: []
+    onDeselect:
+      m_PersistentCalls:
+        m_Calls: []
+    onUse:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &3834714082762988903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784014362856025470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 32
+  condition:
+    luaConditions:
+    - Variable["BossDead"] == true
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  setQuestState: 1
+  questName: 
+  questState: 0
+  setQuestEntryState: 0
+  questEntryNumber: 1
+  questEntryState: 0
+  luaCode: 
+  sequence: 
+  sequenceSpeaker: {fileID: 0}
+  sequenceListener: {fileID: 0}
+  waitOneFrameOnStartOrEnable: 1
+  alertMessage: 
+  textTable: {fileID: 0}
+  alertDuration: 0
+  sendMessages: []
+  barkSource: 0
+  barkConversation: 
+  barkText: 
+  barkTextSequence: 
+  barker: {fileID: 0}
+  barkTarget: {fileID: 0}
+  barkOrder: 0
+  allowBarksDuringConversations: 0
+  skipBarkIfNoValidEntries: 0
+  cacheBarkLines: 0
+  conversation: ConversationWithBuilder
+  conversationConversant: {fileID: 0}
+  conversationActor: {fileID: 0}
+  startConversationEntryID: -1
+  exclusive: 0
+  skipIfNoValidEntries: 0
+  stopConversationOnTriggerExit: 0
+  stopConversationIfTooFar: 0
+  maxConversationDistance: 5
+  monitorConversationDistanceFrequency: 1
+  showCursorDuringConversation: 0
+  pauseGameDuringConversation: 1
+  setActiveActions: []
+  setEnabledActions: []
+  setAnimatorStateActions: []
+  onExecute:
+    m_PersistentCalls:
+      m_Calls: []
+  useConversationTitlePicker: 1
+  useBarkTitlePicker: 1
+  useQuestNamePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: a8b5c8785a74e1b41bc8905aeb88de98, type: 2}
 --- !u!1 &7872864077925716932
 GameObject:
   m_ObjectHideFlags: 0
@@ -7668,6 +7775,12 @@ PrefabInstance:
 --- !u!4 &4204048476255546519 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5177002967970618088, guid: 08fd55b54ccaeb44c83a308785465314,
+    type: 3}
+  m_PrefabInstance: {fileID: 9047642683668166271}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7433958485313486070 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1919965892824763017, guid: 08fd55b54ccaeb44c83a308785465314,
     type: 3}
   m_PrefabInstance: {fileID: 9047642683668166271}
   m_PrefabAsset: {fileID: 0}
